@@ -1,0 +1,13 @@
+{
+  "name": "repository-server",
+  "version": "1.0.0",
+  "description": "MCP server for reading and modifying repository code",
+  "main": "server.py",
+  "scripts": {
+    "start": "python server.py",
+    "dev": "python server.py"
+  },
+  "dependencies": {
+    "modelcontextprotocol": ">=0.1.0"
+  }
+}

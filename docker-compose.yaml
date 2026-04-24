@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  repository-mcp:
+    build: .
+    container_name: repository-mcp
+    volumes:
+      - ./:/workspace  # 挂载当前目录
+    # 或者挂载指定目录:
+    # - /path/to/your/repo:/workspace
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
