@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Repository MCP Server - 纯标准库实现
 无需外部依赖，直接使用 Python 标准库

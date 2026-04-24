@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Repository MCP Server - 支持 HTTP/SSE 模式
 需要 aiohttp: pip install aiohttp
