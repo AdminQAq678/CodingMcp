@@ -15,6 +15,27 @@
 | get_file_info | 获取文件信息 |
 | delete_file | 删除文件或目录 |
 | glob_files | 查找匹配模式的文件 |
+| set_root_path | 切换工作目录 |
+| get_current_path | 获取当前工作目录 |
+| list_allowed_paths | 列出允许访问的路径 |
+
+## 依赖
+
+### 必需
+
+- **Python 3.9+**
+
+### HTTP/SSE 模式依赖
+
+```
+aiohttp>=3.9.0
+```
+
+安装依赖:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## 启动方式
 
@@ -32,7 +53,7 @@ python3 server.py .
 
 ```bash
 # 安装依赖
-pip install aiohttp
+pip install -r requirements.txt
 
 # 启动 HTTP 服务器
 python3 server_http.py /path/to/your/repo
