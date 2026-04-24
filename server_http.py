@@ -197,9 +197,9 @@ def main():
     print(f"  Root path: {root_path}")
     print(f"  Port: {port}")
     print(f"  Endpoints:")
-    print(f"    HTTP:  POST http://localhost:{port}/mcp")
-    print(f"    SSE:   GET  http://localhost:{port}/sse")
-    print(f"    Health: GET http://localhost:{port}/health")
+    print(f"    HTTP:  POST http://0.0.0.0:{port}/mcp")
+    print(f"    SSE:   GET  http://0.0.0.0:{port}/sse")
+    print(f"    Health: GET http://0.0.0.0:{port}/health")
     
     app = create_app(root_path)
     web.run_app(app, host='0.0.0.0', port=port, print=None)
