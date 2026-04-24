@@ -24,11 +24,23 @@ class MCPServerHTTP:
         self.root_path = Path(root_path)
         self.sessions = {}  # session_id -> mcp instance
         self.app = None
+        # 保持单个 MCP 实例用于 HTTP 模式
+        self._mcp = None
+        self._MCPR = None
+        self._MCPRsp = None
+    
+    def get_mcp(self):
+        """获取 MCP 实例 (复用)"""
+        if self._mcp is None:
+            from server import RepositoryMCP, MCPRequest, MCPResponse
+            self._mcp = RepositoryMCP(self.root_path)
+            self._MCPR = MCPRequest
+            self._MCPRsp = MCPResponse
+        return self._mcp, self._MCPR, self._MCPRsp
     
     def create_mcp(self):
-        """创建 MCP 实例 (延迟导入避免依赖)"""
-        from server import RepositoryMCP, MCPRequest, MCPResponse
-        return RepositoryMCP(self.root_path), MCPRequest, MCPResponse
+        """创建 MCP 实例 (SSE 模式会创建新实例，HTTP 模式用 get_mcp)"""
+        return self.get_mcp()
     
     async def handle_initialize(self, mcp, data):
         """处理初始化"""
